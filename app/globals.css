@@ -1,0 +1,521 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   AVENORE TECH – Tailwind v4 Theme Configuration
+   All custom design tokens are defined here via @theme
+   ========================================================================= */
+
+@theme {
+  /* ── COLORS ─────────────────────────────────────────────────────────── */
+  --color-background: #131317;
+  --color-surface: #131317;
+  --color-surface-dim: #131317;
+  --color-surface-bright: #39393e;
+  --color-surface-variant: #353439;
+  --color-surface-container-lowest: #0e0e12;
+  --color-surface-container-low: #1b1b20;
+  --color-surface-container: #1f1f24;
+  --color-surface-container-high: #2a292e;
+  --color-surface-container-highest: #353439;
+  --color-surface-tint: #d0bcff;
+
+  --color-on-surface: #e4e1e8;
+  --color-on-surface-variant: #cbc3d7;
+  --color-on-background: #e4e1e8;
+  --color-inverse-surface: #e4e1e8;
+  --color-inverse-on-surface: #303035;
+
+  --color-primary: #d0bcff;
+  --color-on-primary: #3c0091;
+  --color-primary-container: #a078ff;
+  --color-on-primary-container: #340080;
+  --color-primary-fixed: #e9ddff;
+  --color-primary-fixed-dim: #d0bcff;
+  --color-on-primary-fixed: #23005c;
+  --color-on-primary-fixed-variant: #5516be;
+  --color-inverse-primary: #6d3bd7;
+
+  --color-secondary: #a078ff;
+  --color-on-secondary: #00354a;
+  --color-secondary-container: #00a6e0;
+  --color-on-secondary-container: #00374d;
+  --color-secondary-fixed: #c4e7ff;
+  --color-secondary-fixed-dim: #a078ff;
+  --color-on-secondary-fixed: #001e2c;
+  --color-on-secondary-fixed-variant: #004c69;
+
+  --color-tertiary: #5edf81;
+  --color-on-tertiary: #003916;
+  --color-tertiary-container: #12a650;
+  --color-on-tertiary-container: #003112;
+  --color-tertiary-fixed: #7bfc9a;
+  --color-tertiary-fixed-dim: #5edf81;
+  --color-on-tertiary-fixed: #00210a;
+  --color-on-tertiary-fixed-variant: #005323;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-outline: #958ea0;
+  --color-outline-variant: #494454;
+
+  /* ── TYPOGRAPHY ─────────────────────────────────────────────────────── */
+  --font-family-display: "Outfit", sans-serif;
+  --font-family-headline: "Outfit", sans-serif;
+  --font-family-body: "Geist", sans-serif;
+  --font-family-label: "Geist", sans-serif;
+  --font-family-mono: "Geist Mono", monospace;
+
+  /* ── FONT SIZES ─────────────────────────────────────────────────────── */
+  --text-display-hero: 56px;
+  --text-display-hero--line-height: 64px;
+  --text-display-hero--letter-spacing: -0.03em;
+
+  --text-display-hero-mobile: 36px;
+  --text-display-hero-mobile--line-height: 44px;
+  --text-display-hero-mobile--letter-spacing: -0.025em;
+
+  --text-headline-lg: 40px;
+  --text-headline-lg--line-height: 48px;
+  --text-headline-lg--letter-spacing: -0.025em;
+
+  --text-headline-md: 28px;
+  --text-headline-md--line-height: 36px;
+  --text-headline-md--letter-spacing: -0.02em;
+
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-headline-sm--letter-spacing: -0.015em;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--letter-spacing: -0.01em;
+
+  --text-body-md: 15px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--letter-spacing: -0.005em;
+
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 20px;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+
+  --text-label-technical: 10px;
+  --text-label-technical--line-height: 14px;
+  --text-label-technical--letter-spacing: 0.1em;
+
+  /* ── SPACING ────────────────────────────────────────────────────────── */
+  --spacing-margin: 3rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-2xl: 4rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-xs: 0.25rem;
+
+  /* ── BORDER RADIUS ──────────────────────────────────────────────────── */
+  --radius-DEFAULT: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+}
+
+/* =========================================================================
+   BASE STYLES
+   ========================================================================= */
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #131317;
+    color: #e4e1e8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Geist", sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  /* Hide scrollbar */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================================================
+   PREMIUM VISUAL EFFECTS
+   New animations, glow borders, shimmer, and grid overlay utilities
+   ========================================================================= */
+
+/* Animated gradient border on CTAs */
+@keyframes border-spin {
+  from { --border-angle: 0deg; }
+  to   { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.glow-border {
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle),
+    #d0bcff44,
+    #a078ff,
+    #5edf81,
+    #a078ff,
+    #d0bcff44
+  );
+  animation: border-spin 4s linear infinite;
+  z-index: -1;
+}
+
+/* Shimmer text animation */
+@keyframes shimmer-text {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    110deg,
+    rgba(208, 188, 255, 0.5) 0%,
+    rgba(208, 188, 255, 0.5) 43%,
+    #a078ff 47.5%,
+    #ffffff 50%,
+    #a078ff 52.5%,
+    rgba(208, 188, 255, 0.5) 57%,
+    rgba(208, 188, 255, 0.5) 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 15s ease-in-out infinite alternate;
+}
+
+/* Grid dot overlay for hero sections */
+.hero-grid-bg {
+  background-image: radial-gradient(circle, rgba(208,188,255,0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Pulsing glow ring for floating elements */
+@keyframes glow-ring {
+  0%, 100% { box-shadow: 0 0 20px 4px rgba(160,120,255,0.3); }
+  50%       { box-shadow: 0 0 40px 12px rgba(160,120,255,0.5); }
+}
+
+.animate-glow-ring {
+  animation: glow-ring 3s ease-in-out infinite;
+}
+
+/* =========================================================================
+   UTILITY CLASSES
+   (Custom utilities not easily expressed as Tailwind v4 tokens)
+   ========================================================================= */
+@layer utilities {
+  /* Typography */
+  .font-display-hero {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .font-display-hero-mobile {
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+  .font-headline-lg {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .font-headline-md {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .font-headline-sm {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .font-body-lg {
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .font-body-md {
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  .font-body-sm {
+    font-family: "Geist", sans-serif;
+    font-weight: 400;
+  }
+  .font-label-md {
+    font-family: "Geist", sans-serif;
+    font-weight: 500;
+  }
+  .font-label-technical {
+    font-family: "Geist", monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  /* Text sizes */
+  .text-display-hero {
+    font-size: 56px;
+    line-height: 64px;
+  }
+  .text-display-hero-mobile {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .text-headline-lg {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .text-headline-md {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .text-headline-sm {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .text-body-md {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .text-body-sm {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .text-label-technical {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  /* Color utilities */
+  .text-on-surface { color: #e4e1e8; }
+  .text-on-surface-variant { color: #cbc3d7; }
+  .text-on-background { color: #e4e1e8; }
+  .text-on-primary { color: #3c0091; }
+  .text-on-primary-container { color: #340080; }
+  .text-on-secondary { color: #00354a; }
+  .text-on-secondary-container { color: #00374d; }
+  .text-on-tertiary { color: #003916; }
+  .text-on-tertiary-container { color: #003112; }
+  .text-on-error { color: #690005; }
+  .text-on-error-container { color: #ffdad6; }
+  .text-inverse-on-surface { color: #303035; }
+  .text-surface-tint { color: #d0bcff; }
+  .text-outline { color: #958ea0; }
+  .text-primary-fixed { color: #e9ddff; }
+
+  .bg-surface { background-color: #131317; }
+  .bg-surface-dim { background-color: #131317; }
+  .bg-surface-bright { background-color: #39393e; }
+  .bg-surface-variant { background-color: #353439; }
+  .bg-surface-container-lowest { background-color: #0e0e12; }
+  .bg-surface-container-low { background-color: #1b1b20; }
+  .bg-surface-container { background-color: #1f1f24; }
+  .bg-surface-container-high { background-color: #2a292e; }
+  .bg-surface-container-highest { background-color: #353439; }
+  .bg-primary { background-color: #d0bcff; }
+  .bg-primary-container { background-color: #a078ff; }
+  .bg-secondary { background-color: #a078ff; }
+  .bg-secondary-container { background-color: #00a6e0; }
+  .bg-tertiary { background-color: #5edf81; }
+  .bg-tertiary-container { background-color: #12a650; }
+  .bg-error { background-color: #ffb4ab; }
+  .bg-error-container { background-color: #93000a; }
+  .bg-on-surface { background-color: #e4e1e8; }
+  .bg-on-primary-container { background-color: #340080; }
+  .bg-outline-variant { background-color: #494454; }
+
+  .border-outline-variant { border-color: #494454; }
+  .border-primary { border-color: #d0bcff; }
+  .border-secondary { border-color: #a078ff; }
+  .border-tertiary { border-color: #5edf81; }
+
+  /* Spacing */
+  .px-margin { padding-left: 3rem; padding-right: 3rem; }
+  .px-margin-mobile { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .gap-gutter { gap: 1.5rem; }
+  .gap-gutter-mobile { gap: 1rem; }
+  .py-space-2xl { padding-top: 4rem; padding-bottom: 4rem; }
+  .py-space-xl { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .py-space-lg { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .py-space-md { padding-top: 1rem; padding-bottom: 1rem; }
+  .py-space-sm { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .py-space-xs { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+  .px-space-2xl { padding-left: 4rem; padding-right: 4rem; }
+  .px-space-xl { padding-left: 2.5rem; padding-right: 2.5rem; }
+  .px-space-lg { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .px-space-md { padding-left: 1rem; padding-right: 1rem; }
+  .px-space-sm { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .px-space-xs { padding-left: 0.25rem; padding-right: 0.25rem; }
+  .pt-space-2xl { padding-top: 4rem; }
+  .pt-space-xl { padding-top: 2.5rem; }
+  .pt-space-lg { padding-top: 1.5rem; }
+  .pt-space-md { padding-top: 1rem; }
+  .pt-space-sm { padding-top: 0.5rem; }
+  .pt-space-xs { padding-top: 0.25rem; }
+  .pb-space-2xl { padding-bottom: 4rem; }
+  .pb-space-xl { padding-bottom: 2.5rem; }
+  .pb-space-lg { padding-bottom: 1.5rem; }
+  .pb-space-md { padding-bottom: 1rem; }
+  .pb-space-sm { padding-bottom: 0.5rem; }
+  .pb-space-xs { padding-bottom: 0.25rem; }
+  .p-space-2xl { padding: 4rem; }
+  .p-space-xl { padding: 2.5rem; }
+  .p-space-lg { padding: 1.5rem; }
+  .p-space-md { padding: 1rem; }
+  .p-space-sm { padding: 0.5rem; }
+  .p-space-xs { padding: 0.25rem; }
+  .my-space-2xl { margin-top: 4rem; margin-bottom: 4rem; }
+  .my-space-xl { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+  .my-space-lg { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+  .my-space-md { margin-top: 1rem; margin-bottom: 1rem; }
+  .my-space-sm { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .my-space-xs { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+  .mt-space-2xl { margin-top: 4rem; }
+  .mt-space-xl { margin-top: 2.5rem; }
+  .mt-space-lg { margin-top: 1.5rem; }
+  .mt-space-md { margin-top: 1rem; }
+  .mt-space-sm { margin-top: 0.5rem; }
+  .mt-space-xs { margin-top: 0.25rem; }
+  .mb-space-2xl { margin-bottom: 4rem; }
+  .mb-space-xl { margin-bottom: 2.5rem; }
+  .mb-space-lg { margin-bottom: 1.5rem; }
+  .mb-space-md { margin-bottom: 1rem; }
+  .mb-space-sm { margin-bottom: 0.5rem; }
+  .mb-space-xs { margin-bottom: 0.25rem; }
+  .gap-space-2xl { gap: 4rem; }
+  .gap-space-xl { gap: 2.5rem; }
+  .gap-space-lg { gap: 1.5rem; }
+  .gap-space-md { gap: 1rem; }
+  .gap-space-sm { gap: 0.5rem; }
+  .gap-space-xs { gap: 0.25rem; }
+  .space-y-space-2xl > * + * { margin-top: 4rem; }
+  .space-y-space-xl > * + * { margin-top: 2.5rem; }
+  .space-y-space-lg > * + * { margin-top: 1.5rem; }
+  .space-y-space-md > * + * { margin-top: 1rem; }
+  .space-y-space-sm > * + * { margin-top: 0.5rem; }
+  .space-y-space-xs > * + * { margin-top: 0.25rem; }
+
+  /* Specific spacings on individual sides */
+  .left-space-md { left: 1rem; }
+  .bottom-space-md { bottom: 1rem; }
+  .right-space-md { right: 1rem; }
+  .top-space-md { top: 1rem; }
+  .left-space-sm { left: 0.5rem; }
+  .bottom-space-sm { bottom: 0.5rem; }
+  .right-space-sm { right: 0.5rem; }
+  .top-space-sm { top: 0.5rem; }
+
+  /* Border colors with opacity */
+  .border-outline-variant\/20 { border-color: rgba(73, 68, 84, 0.2); }
+  .border-outline-variant\/25 { border-color: rgba(73, 68, 84, 0.25); }
+  .border-outline-variant\/30 { border-color: rgba(73, 68, 84, 0.3); }
+  .border-outline-variant\/40 { border-color: rgba(73, 68, 84, 0.4); }
+  .border-outline-variant\/50 { border-color: rgba(73, 68, 84, 0.5); }
+  .border-primary\/20 { border-color: rgba(208, 188, 255, 0.2); }
+  .border-primary\/40 { border-color: rgba(208, 188, 255, 0.4); }
+  .border-primary\/50 { border-color: rgba(208, 188, 255, 0.5); }
+  .border-secondary\/40 { border-color: rgba(123, 208, 255, 0.4); }
+  .border-tertiary\/40 { border-color: rgba(94, 223, 129, 0.4); }
+
+  /* BG with opacity */
+  .bg-primary\/5 { background-color: rgba(208, 188, 255, 0.05); }
+  .bg-primary\/10 { background-color: rgba(208, 188, 255, 0.1); }
+  .bg-primary\/15 { background-color: rgba(208, 188, 255, 0.15); }
+  .bg-primary\/20 { background-color: rgba(208, 188, 255, 0.2); }
+  .bg-secondary\/5 { background-color: rgba(123, 208, 255, 0.05); }
+  .bg-secondary\/8 { background-color: rgba(123, 208, 255, 0.08); }
+  .bg-secondary\/10 { background-color: rgba(123, 208, 255, 0.1); }
+  .bg-secondary\/15 { background-color: rgba(123, 208, 255, 0.15); }
+  .bg-secondary\/20 { background-color: rgba(123, 208, 255, 0.2); }
+  .bg-tertiary\/10 { background-color: rgba(94, 223, 129, 0.1); }
+  .bg-tertiary\/20 { background-color: rgba(94, 223, 129, 0.2); }
+  .bg-surface\/85 { background-color: rgba(19, 19, 23, 0.85); }
+  .bg-surface-container\/40 { background-color: rgba(31, 31, 36, 0.4); }
+  .bg-surface-container\/60 { background-color: rgba(31, 31, 36, 0.6); }
+  .bg-surface-container-lowest\/80 { background-color: rgba(14, 14, 18, 0.8); }
+  .bg-surface-container-lowest\/90 { background-color: rgba(14, 14, 18, 0.9); }
+  .bg-primary-container\/20 { background-color: rgba(160, 120, 255, 0.2); }
+  .bg-primary-container\/80 { background-color: rgba(160, 120, 255, 0.8); }
+  .bg-secondary-container\/80 { background-color: rgba(0, 166, 224, 0.8); }
+  .bg-tertiary-container\/30 { background-color: rgba(18, 166, 80, 0.3); }
+  .bg-on-surface-variant\/80 { background-color: rgba(203, 195, 215, 0.8); }
+  .bg-\[\#5edf81\]\/20 { background-color: rgba(94, 223, 129, 0.2); }
+
+  /* Gradient backgrounds */
+  .from-primary-container\/20 { --tw-gradient-from: rgba(160, 120, 255, 0.2); }
+  .from-primary\/15 { --tw-gradient-from: rgba(208, 188, 255, 0.15); }
+  .from-primary\/20 { --tw-gradient-from: rgba(208, 188, 255, 0.2); }
+  .from-secondary\/15 { --tw-gradient-from: rgba(123, 208, 255, 0.15); }
+  .to-secondary\/10 { --tw-gradient-to: rgba(123, 208, 255, 0.1); }
+  .to-\[\#5edf81\]\/10 { --tw-gradient-to: rgba(94, 223, 129, 0.1); }
+  
+  /* Text color with opacity */
+  .text-outline-variant { color: #494454; }
+  .text-primary-container { color: #a078ff; }
+  .text-secondary-fixed-dim { color: #a078ff; }
+
+  /* Misc */
+  .tracking-widest { letter-spacing: 0.1em; }
+  .rounded-DEFAULT { border-radius: 1rem; }
+
+  /* Animation */
+  @keyframes ping-pulse {
+    75%, 100% { transform: scale(2); opacity: 0; }
+  }
+}
