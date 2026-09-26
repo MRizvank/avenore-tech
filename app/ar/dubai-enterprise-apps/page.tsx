@@ -22,7 +22,7 @@ const C = {
 
 export default function DubaiEnterpriseAppsAr() {
   return (
-    <div style={{ backgroundColor: C.surface, color: C.onSurface, minHeight: "100vh", fontFamily: "var(--font-outfit), var(--font-geist), sans-serif" }} dir="rtl">
+    <div className="ar-page" style={{ backgroundColor: C.surface, color: C.onSurface, minHeight: "100vh", fontFamily: "var(--font-outfit), var(--font-geist), sans-serif" }} dir="rtl">
       
       {/* Hero Section */}
       <section style={{ paddingTop: "40px", paddingBottom: "80px", borderBottom: `1px solid rgba(149, 142, 160, 0.2)` }}>
@@ -52,7 +52,7 @@ export default function DubaiEnterpriseAppsAr() {
       <section style={{ paddingTop: "80px", paddingBottom: "100px" }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1.5rem" }}>
           <h2 style={{ fontSize: "32px", fontWeight: 800, marginBottom: "3rem" }}>هندسة تتوافق مع المعايير الرقمية لدولة الإمارات</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "2rem" }}>
             
             <div style={{ backgroundColor: C.surfaceLow, padding: "2.5rem", borderRadius: "24px", border: `1px solid rgba(149, 142, 160, 0.1)` }}>
               <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: C.surfaceLowest, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.5rem" }}>
@@ -91,7 +91,7 @@ export default function DubaiEnterpriseAppsAr() {
       {/* MCC Dubai Case Study */}
       <section style={{ backgroundColor: C.surfaceLowest, paddingTop: "80px", paddingBottom: "80px", borderTop: `1px solid rgba(149, 142, 160, 0.2)` }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1.5rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }} className="md:grid-cols-2 grid-cols-1">
+          <div style={{ display: "grid", gap: "4rem", alignItems: "center" }} className="grid-cols-1 md:grid-cols-2">
             <div style={{ backgroundColor: C.surfaceLow, padding: "3rem", borderRadius: "24px", border: `1px solid ${C.tertiary}40` }}>
               <span style={{ color: C.tertiary, fontSize: "12px", fontWeight: "bold", letterSpacing: "2px", marginBottom: "1rem", display: "block" }}>حالة دراسية: MCC DUBAI</span>
               <h3 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "1rem" }}>منصة تفتيش وامتثال ميداني ذكية</h3>

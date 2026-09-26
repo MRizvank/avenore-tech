@@ -1,15 +1,21 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  const [hasMouse, setHasMouse] = useState(false);
 
   useEffect(() => {
-    // Only run on desktop
-    if (window.innerWidth < 1024) return;
+    if (window.matchMedia("(pointer: fine)").matches) {
+      setHasMouse(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!hasMouse) return;
 
     const cursor = cursorRef.current;
     const follower = followerRef.current;
@@ -66,7 +72,9 @@ export default function CustomCursor() {
       document.removeEventListener("mouseover", onMouseOver);
       document.removeEventListener("mouseout", onMouseOut);
     };
-  }, []);
+  }, [hasMouse]);
+
+  if (!hasMouse) return null;
 
   return (
     <>

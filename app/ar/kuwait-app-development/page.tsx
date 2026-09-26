@@ -22,7 +22,7 @@ const C = {
 
 export default function KuwaitAppDevelopmentAr() {
   return (
-    <div style={{ backgroundColor: C.surface, color: C.onSurface, minHeight: "100vh", fontFamily: "var(--font-outfit), var(--font-geist), sans-serif" }} dir="rtl">
+    <div className="ar-page" style={{ backgroundColor: C.surface, color: C.onSurface, minHeight: "100vh", fontFamily: "var(--font-outfit), var(--font-geist), sans-serif" }} dir="rtl">
       
       {/* Hero Section */}
       <section style={{ paddingTop: "40px", paddingBottom: "80px", borderBottom: `1px solid rgba(149, 142, 160, 0.2)` }}>
@@ -35,7 +35,7 @@ export default function KuwaitAppDevelopmentAr() {
             شركة برمجة وتطوير تطبيقات الجوال في <span style={{ color: C.primary }}>الكويت</span>
           </h1>
           <p style={{ fontSize: "18px", color: C.onSurfaceVariant, maxWidth: "600px", lineHeight: 1.6, marginBottom: "2.5rem" }}>
-            في Avenore Tech، لا نقوم فقط بـ "برمجة التطبيقات". نحن نهندس حلولاً برمجية معمارية قوية للشركات الناشئة والمؤسسات في الكويت ودول الخليج. نعتمد على إطارات عمل حديثة مثل Flutter وبنى تحتية سحابية متوافقة مع متطلبات البنك المركزي.
+            في Avenore Tech، لا نقوم فقط بـ &quot;برمجة التطبيقات&quot;. نحن نهندس حلولاً برمجية معمارية قوية للشركات الناشئة والمؤسسات في الكويت ودول الخليج. نعتمد على إطارات عمل حديثة مثل Flutter وبنى تحتية سحابية متوافقة مع متطلبات البنك المركزي.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <Link href="/contact" style={{ backgroundColor: C.primary, color: "#000", padding: "14px 28px", borderRadius: "9999px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
@@ -52,7 +52,7 @@ export default function KuwaitAppDevelopmentAr() {
       <section style={{ paddingTop: "80px", paddingBottom: "100px" }}>
         <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 1.5rem" }}>
           <h2 style={{ fontSize: "32px", fontWeight: 800, marginBottom: "3rem" }}>لماذا تختار Avenore Tech لتطوير تطبيقك في الكويت؟</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "2rem" }}>
             
             <div style={{ backgroundColor: C.surfaceLow, padding: "2.5rem", borderRadius: "24px", border: `1px solid rgba(149, 142, 160, 0.1)` }}>
               <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: C.surfaceLowest, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.5rem" }}>

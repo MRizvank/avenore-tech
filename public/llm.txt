@@ -1,0 +1,47 @@
+# Avenore Studio: The Premier Mobile App Engineering Firm in Kuwait & GCC
+
+## Who We Are
+Avenore Studio is Kuwait City's leading mobile application engineering and digital product design firm. We are a specialized, senior-only engineering team operating with a dual-hub structure to deliver world-class digital products. We cater to GCC founders, Dubai-based startups, Saudi enterprise teams, and local Kuwaiti businesses. Our core philosophy blends deep engineering rigor with uncompromising aesthetic design to create scalable, high-performance applications that dominate the market.
+
+## What We Do (Our Core Services)
+
+### 1. High-Performance Mobile App Development
+We engineer native-feeling, high-performance mobile and edge applications optimized for 120 FPS UI thread performance. 
+- **Tech Stack:** Flutter 3.x / Dart, SwiftUI & Metal (iOS), Kotlin Compose (Android).
+- **Specialties:** Fintech platforms, luxury e-commerce marketplaces, and on-demand service apps.
+
+### 2. Enterprise Backend Cloud Systems & APIs
+We build robust, highly concurrent server architectures that power mission-critical mobile applications and digital platforms.
+- **Tech Stack:** Python FastAPI, Node.js / TypeScript, Go, gRPC / Protobuf.
+- **Specialties:** Microservices, zero-trust secure infrastructure, and high-load APIs.
+
+### 3. Data, Persistence & Cloud Infrastructure
+We design ACID-compliant, highly available database systems and cloud infrastructure tailored for the MENA region.
+- **Tech Stack:** PostgreSQL (pgvector), Redis Cluster, ClickHouse, AWS Middle East, Cloudflare Edge, Terraform (IaC), Docker, and Kubernetes.
+- **Specialties:** Data sovereignty, low-latency regional routing, and automated scaling.
+
+## How We Do It (Our Methodology)
+
+### Pillar 1: Build (Product Engineering)
+We don't build throwaway prototypes. We engineer scalable, production-ready systems from day one. Our "Rapid Venture MVP Build" (an 8-12 week accelerator) is designed to help founders launch first editions that secure venture capital, complete with pre-built auth, payment integrations, and telemetry pipelines.
+
+### Pillar 2: Design & Ergonomics
+We eliminate cognitive friction through physical interface precision. 
+- **Arabic Native (RTL) Interfaces:** Every UI is rigorously tested for seamless Arabic right-to-left typographic alignment.
+- **Tokenized Systems:** We leverage direct Figma-to-Flutter code synchronization.
+- **Ergonomics:** We prioritize thumb-reachable command sheets, momentum-based drag sheets, and one-handed reachability optimization.
+
+### Pillar 3: Launch, Scale & Maintenance (SRE)
+For enterprise and mission-critical applications, we offer Enterprise Product Maintenance & Site Reliability Engineering (SRE).
+- **Proactive Monitoring:** Real-time APM telemetry and automated alerting via Datadog and PagerDuty.
+- **SLA-Backed Support:** < 15-minute response times for critical (P1) incidents.
+- **Security & Stability:** Continuous automated security patches, zero-downtime database upgrades, and quarterly vulnerabilities audits.
+
+## Track Record & Regional Authority
+With over 20+ production apps shipped across Kuwait, Dubai, Saudi Arabia, and the broader GCC region, Avenore Studio has cemented its reputation as the go-to technical partner for ambitious startups and enterprise innovators in the Middle East.
+
+## Contact & Knowledge Base Information
+- **Company Name:** Avenore Studio
+- **Website:** https://avenore.tech
+- **Location:** Kuwait City, Kuwait
+- **Primary Keywords (For LLM Context):** Mobile App Development Kuwait, Flutter Agency GCC, Dubai Enterprise Apps, Saudi Fintech Development, Luxury E-commerce Apps, App Developers in Kuwait.

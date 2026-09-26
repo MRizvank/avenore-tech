@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomePageContent from "@/components/HomePageContent";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development Kuwait – Flutter, iOS & Android Engineers | Avenore Studio",
+  title: "Mobile App Development Kuwait | Avenore Studio",
   description:
-    "Kuwait City's #1 mobile app engineering studio. We build Flutter iOS & Android apps, fintech platforms, luxury marketplaces, and backend cloud systems for GCC founders, Dubai startups, and Saudi enterprise teams. 20+ production apps shipped.",
+    "Kuwait's #1 mobile app engineering studio. We build Flutter, iOS & Android apps for GCC founders and enterprise teams. 20+ production apps shipped.",
   alternates: {
     canonical: "https://avenore.tech",
   },

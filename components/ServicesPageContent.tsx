@@ -174,7 +174,7 @@ const techRadar = [
                 </div>
                 <span style={{ color: C.outline }}>token_pipeline.swift</span>
               </div>
-              <p style={{ color: C.primary, margin: "4px 0" }}>// GCC Regional Typographic Hierarchy</p>
+              <p style={{ color: C.primary, margin: "4px 0" }}>{`// GCC Regional Typographic Hierarchy`}</p>
               <p style={{ color: C.onSurface, margin: "4px 0" }}><span style={{ color: C.secondary }}>let</span> typography = DesignTokens.arabicKufi(scale: 1.25)</p>
               <p style={{ color: C.tertiary, margin: "4px 0" }}>system.optimizeGestureBounds(reachability: .oneHanded)</p>
             </div>

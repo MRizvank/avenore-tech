@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const C = {
   surfaceLow: "#1b1b20",
@@ -46,9 +47,11 @@ export default function Footer() {
           {/* Brand */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }} className="lg:col-span-4">
             <div style={{ display: "flex", alignItems: "center", gap: "0" }}>
-              <img
+              <Image
                 src="/logo.png"
                 alt="Avenore Logo"
+                width={86}
+                height={86}
                 style={{ height: "86px", width: "auto", flexShrink: 0, margin: "0 -12px 0 -8px" }}
               />
               <span style={{ fontFamily: "var(--font-outfit)", fontSize: "20px", fontWeight: 700, letterSpacing: "-0.015em", color: C.onSurface, marginTop: "14px", marginLeft: "-5px" }}>AVENORE</span>

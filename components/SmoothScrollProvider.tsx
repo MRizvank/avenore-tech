@@ -20,22 +20,24 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const update = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(update);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove(update);
       lenis.destroy();
     };
   }, []);
 
   useGSAP(() => {
     // Select all sections and animate them on scroll
-    const sections = gsap.utils.toArray("section");
+    const sections = gsap.utils.toArray("section") as HTMLElement[];
     
-    sections.forEach((sec: any) => {
+    sections.forEach((sec) => {
       gsap.fromTo(sec, 
         { y: 60, opacity: 0 },
         {

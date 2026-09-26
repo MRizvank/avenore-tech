@@ -3,10 +3,10 @@
 import { useCallback } from "react";
 import Particles, { ParticlesProvider } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Container, ISourceOptions } from "@tsparticles/engine";
+import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function ParticleHero() {
-  const particlesLoaded = useCallback(async (_container?: Container) => {}, []);
+  const particlesLoaded = useCallback(async () => {}, []);
 
   const options: ISourceOptions = {
     background: { color: { value: "transparent" } },

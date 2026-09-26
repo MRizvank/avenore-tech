@@ -98,7 +98,7 @@ export default function WorkPageContent() {
               </div>
               <div style={{ position: "relative", borderRadius: "1rem", overflow: "hidden", backgroundColor: C.surfaceLow, minHeight: "360px", order: c.imgRight ? 2 : 1 }} className={c.imgRight ? "lg:order-2" : "lg:order-1"}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.img} alt={c.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src={c.img} alt={c.name} width="800" height="600" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 <div style={{ position: "absolute", bottom: "12px", right: "12px", padding: "4px 12px", borderRadius: "9999px", backgroundColor: "rgba(14,14,18,0.9)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", gap: "6px" }}>
                   <span className="material-symbols-outlined" style={{ color: c.badge.color, fontSize: "14px" }}>{c.badge.icon}</span>
                   <span style={{ color: c.badge.color, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>{c.badge.text}</span>

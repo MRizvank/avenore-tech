@@ -1,0 +1,11 @@
+/* TEAM */
+Engineer: Avenore Studio Core Engineering Team
+Site: https://avenore.tech
+Location: Kuwait City, Kuwait
+
+/* SITE */
+Last update: 2026
+Standards: HTML5, CSS3, ES6
+Components: Next.js, React, Tailwind CSS
+Software: VS Code, Figma
+Platform: Vercel / AWS

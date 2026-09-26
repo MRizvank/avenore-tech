@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -21,7 +22,8 @@ export default function Header() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    const t = setTimeout(() => setIsMobileMenuOpen(false), 0);
+    return () => clearTimeout(t);
   }, [pathname]);
 
   // Prevent scrolling when menu is open
@@ -68,9 +70,12 @@ export default function Header() {
             href="/"
             style={{ display: "flex", alignItems: "center", gap: "0", textDecoration: "none" }}
           >
-            <img
+            <Image
               src="/logo.png"
               alt="Avenore Logo"
+              width={86}
+              height={86}
+              priority={true}
               style={{ height: "86px", width: "auto", flexShrink: 0, margin: "0 -12px 0 -8px" }}
             />
             <span

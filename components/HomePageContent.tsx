@@ -58,15 +58,39 @@ export default function HomePageContent() {
         <div style={{ maxWidth: "80rem", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative", zIndex: 1 }}>
 
           {/* Badge */}
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "4px 16px 4px 4px", borderRadius: "9999px", backgroundColor: C.surfaceLow, boxShadow: "0 0 24px -4px rgba(208,188,255,0.2)", marginBottom: "1.5rem" }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", borderRadius: "9999px", backgroundColor: C.surfaceContainer, color: C.primary, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: C.primary, display: "inline-block", animation: "pulse 2s infinite" }} />
-              {t("hero.badge")}
-            </span>
-            <span style={{ color: C.onSurfaceVariant, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              {t("hero.location")}
-            </span>
-          </div>
+          <>
+            <style>{`
+    .hero-badge-pill {
+      display: inline-flex;
+    }
+    @media (max-width: 640px) {
+      .hero-badge-pill {
+        display: block; /* or "flex" / "none" depending on what you want on mobile */
+      }
+    }
+  `}</style>
+
+            <div
+              className="hero-badge-pill"
+              style={{
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "4px 16px 4px 4px",
+                borderRadius: "9999px",
+                backgroundColor: C.surfaceLow,
+                boxShadow: "0 0 24px -4px rgba(208,188,255,0.2)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", borderRadius: "9999px", backgroundColor: C.surfaceContainer, color: C.primary, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: C.primary, display: "inline-block", animation: "pulse 2s infinite" }} />
+                {t("hero.badge")}
+              </span>
+              <span style={{ color: C.onSurfaceVariant, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                {t("hero.location")}
+              </span>
+            </div>
+          </>
 
           {/* Headline */}
           <h1 style={{ fontFamily: "var(--font-outfit), Outfit, sans-serif", fontSize: "clamp(40px, 7vw, 72px)", lineHeight: "1.05", fontWeight: 800, letterSpacing: "-0.03em", textTransform: "uppercase", margin: "0 0 1.5rem", maxWidth: "900px" }}>
@@ -133,7 +157,7 @@ export default function HomePageContent() {
                 </div>
                 <div style={{ flex: 1, margin: "8px 0", borderRadius: "12px", overflow: "hidden", backgroundColor: C.surfaceContainer, position: "relative" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcRd4xP-f6BE_lVtnv8zfNPaDXMdc2jvocAMVuK7HvODPYWk0d5BUq3IR8A9cXz8bZAN15U49OZynL4gaOpP252NU6ELuF9Jg0aohWa65K8gItjAp9j5bdOJAeY8GSEBMbgVhnIyByMz5XvmFsuVr5Vq5_kgi-IB9p5FWyM1ORbkuYpkhKAv2D_bg8rGh_SUXbikjoQjRMlL7xJQLioMmuXeQ7kUF1KVur3FPIpZRBFj1KuujeLYCQNw" alt="FASH" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcRd4xP-f6BE_lVtnv8zfNPaDXMdc2jvocAMVuK7HvODPYWk0d5BUq3IR8A9cXz8bZAN15U49OZynL4gaOpP252NU6ELuF9Jg0aohWa65K8gItjAp9j5bdOJAeY8GSEBMbgVhnIyByMz5XvmFsuVr5Vq5_kgi-IB9p5FWyM1ORbkuYpkhKAv2D_bg8rGh_SUXbikjoQjRMlL7xJQLioMmuXeQ7kUF1KVur3FPIpZRBFj1KuujeLYCQNw" alt="FASH" width="600" height="140" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
                   <div style={{ position: "absolute", bottom: "8px", left: "8px", padding: "3px 8px", borderRadius: "9999px", backgroundColor: "rgba(14,14,18,0.8)", backdropFilter: "blur(8px)", color: C.onSurface, fontSize: "10px", fontFamily: "monospace", fontWeight: 600 }}>{t("home.mockup.fash.remaining")}</div>
                 </div>
                 <div style={{ padding: "6px 12px", borderRadius: "9999px", backgroundColor: C.surfaceContainerHighest, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -290,7 +314,7 @@ export default function HomePageContent() {
             </div>
             <div style={{ position: "relative", borderRadius: "1rem", overflow: "hidden", backgroundColor: C.surfaceLow, minHeight: "320px" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDsxBnxeCD6XDptNQo2JCgCh3T-sId2JpjS9dKMHALua8QOvBiaOjnXbzXG0dYXnSvGJALYukPCDK9kWLz0-eJ7ZVAheoLUyCOk3S_bllfrCYK28H3t5kHgKnFlHsjr-vA73FV7DnrlEi8FG_x0Ct_4mCJGb0LJgjmvt1dqeWfy4o6Pg-S3LI44NDKOvLRKyPTCabV6XqBbx40GLpuJXUmd3YYd37VUNjVeWxa9Zu1hPmcyrbOiciQsQ" alt="Sequifi" />
+              <img width="800" height="600" style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDsxBnxeCD6XDptNQo2JCgCh3T-sId2JpjS9dKMHALua8QOvBiaOjnXbzXG0dYXnSvGJALYukPCDK9kWLz0-eJ7ZVAheoLUyCOk3S_bllfrCYK28H3t5kHgKnFlHsjr-vA73FV7DnrlEi8FG_x0Ct_4mCJGb0LJgjmvt1dqeWfy4o6Pg-S3LI44NDKOvLRKyPTCabV6XqBbx40GLpuJXUmd3YYd37VUNjVeWxa9Zu1hPmcyrbOiciQsQ" alt="Sequifi" />
               <div style={{ position: "absolute", bottom: "12px", left: "12px", padding: "4px 12px", borderRadius: "9999px", backgroundColor: "rgba(14,14,18,0.9)", backdropFilter: "blur(12px)", display: "flex", alignItems: "center", gap: "6px" }}>
                 <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: C.tertiary, display: "inline-block" }} />
                 <span style={{ color: C.tertiary, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>{t("portfolio.seq.status")}</span>
@@ -302,7 +326,7 @@ export default function HomePageContent() {
           <div style={{ ...card, gap: "2.5rem" }} className="grid grid-cols-1 lg:grid-cols-2">
             <div style={{ position: "relative", borderRadius: "1rem", overflow: "hidden", backgroundColor: C.surfaceLow, minHeight: "320px", order: 2 }} className="lg:order-1">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRUufcqmMh4VWWuVpcOwi-famrfx-2kUusGrhkklJJ8pM8YiI-UOTejpzJKZPDHyI-yPjKzCzp3QdH6F4qRyVMs15PWK05oKXBQEx-Y3Rdt4V-T3aPKPvdPZlKH5xIZsV7ROgTsf8lxsUJqEXx2dCfW78934MLP-06C_rGaH0Z4v8sArSQnbLF1MrwiAOJvk_rLobTtSWkmE-lXgn9W2q6cPI9JtVw_DVs4U1WfxCzL2JGhmWk2_ftag" alt="FASH" />
+              <img width="800" height="600" style={{ width: "100%", height: "100%", objectFit: "cover" }} src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRUufcqmMh4VWWuVpcOwi-famrfx-2kUusGrhkklJJ8pM8YiI-UOTejpzJKZPDHyI-yPjKzCzp3QdH6F4qRyVMs15PWK05oKXBQEx-Y3Rdt4V-T3aPKPvdPZlKH5xIZsV7ROgTsf8lxsUJqEXx2dCfW78934MLP-06C_rGaH0Z4v8sArSQnbLF1MrwiAOJvk_rLobTtSWkmE-lXgn9W2q6cPI9JtVw_DVs4U1WfxCzL2JGhmWk2_ftag" alt="FASH" />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", order: 1 }} className="lg:order-2">
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
@@ -356,7 +380,7 @@ export default function HomePageContent() {
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", paddingTop: "1rem", borderTop: `1px solid rgba(73,68,84,0.2)` }}>
                   <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", backgroundColor: C.surfaceContainer, flexShrink: 0 }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={testimonial.img} alt={testimonial.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={testimonial.img} alt={testimonial.name} width="128" height="128" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </div>
                   <div>
                     <span style={{ color: C.onSurface, fontSize: "20px", fontFamily: "var(--font-outfit)", fontWeight: 600, display: "block" }}>{testimonial.name}</span>
