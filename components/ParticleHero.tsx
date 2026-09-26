@@ -23,9 +23,9 @@ export default function ParticleHero() {
       },
     },
     particles: {
-      color: { value: ["#d0bcff", "#a078ff", "#5edf81", "#ffffff"] },
+      color: { value: ["#d0bcff", "#8b5cf6", "#5edf81", "#ffffff"] },
       links: {
-        color: "#a078ff",
+        color: "#8b5cf6",
         distance: 130,
         enable: true,
         opacity: 0.07,

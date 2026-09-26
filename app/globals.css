@@ -27,7 +27,7 @@
 
   --color-primary: #d0bcff;
   --color-on-primary: #3c0091;
-  --color-primary-container: #a078ff;
+  --color-primary-container: #8b5cf6;
   --color-on-primary-container: #340080;
   --color-primary-fixed: #e9ddff;
   --color-primary-fixed-dim: #d0bcff;
@@ -35,12 +35,12 @@
   --color-on-primary-fixed-variant: #5516be;
   --color-inverse-primary: #6d3bd7;
 
-  --color-secondary: #a078ff;
+  --color-secondary: #8b5cf6;
   --color-on-secondary: #00354a;
   --color-secondary-container: #00a6e0;
   --color-on-secondary-container: #00374d;
   --color-secondary-fixed: #c4e7ff;
-  --color-secondary-fixed-dim: #a078ff;
+  --color-secondary-fixed-dim: #8b5cf6;
   --color-on-secondary-fixed: #001e2c;
   --color-on-secondary-fixed-variant: #004c69;
 
@@ -200,9 +200,9 @@
   background: conic-gradient(
     from var(--border-angle),
     #d0bcff44,
-    #a078ff,
+    #8b5cf6,
     #5edf81,
-    #a078ff,
+    #8b5cf6,
     #d0bcff44
   );
   animation: border-spin 4s linear infinite;
@@ -224,11 +224,30 @@
     110deg,
     rgba(208, 188, 255, 0.5) 0%,
     rgba(208, 188, 255, 0.5) 43%,
-    #a078ff 47.5%,
+    #8b5cf6 47.5%,
     #ffffff 50%,
-    #a078ff 52.5%,
+    #8b5cf6 52.5%,
     rgba(208, 188, 255, 0.5) 57%,
     rgba(208, 188, 255, 0.5) 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 15s ease-in-out infinite alternate;
+}
+
+.hero-title-shimmer {
+  color: #ffffff;
+  background: linear-gradient(
+    110deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    rgba(255, 255, 255, 0.22) 47%,
+    #ffffff 50%,
+    rgba(255, 255, 255, 0.22) 53%,
+    #ffffff 60%,
+    #ffffff 100%
   );
   background-size: 250% auto;
   -webkit-background-clip: text;
@@ -437,10 +456,10 @@
     background-color: #d0bcff;
   }
   .bg-primary-container {
-    background-color: #a078ff;
+    background-color: #8b5cf6;
   }
   .bg-secondary {
-    background-color: #a078ff;
+    background-color: #8b5cf6;
   }
   .bg-secondary-container {
     background-color: #00a6e0;
@@ -474,7 +493,7 @@
     border-color: #d0bcff;
   }
   .border-secondary {
-    border-color: #a078ff;
+    border-color: #8b5cf6;
   }
   .border-tertiary {
     border-color: #5edf81;
@@ -845,10 +864,10 @@
     color: #494454;
   }
   .text-primary-container {
-    color: #a078ff;
+    color: #8b5cf6;
   }
   .text-secondary-fixed-dim {
-    color: #a078ff;
+    color: #8b5cf6;
   }
 
   /* Misc */

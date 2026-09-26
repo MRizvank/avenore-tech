@@ -14,9 +14,9 @@ const C = {
   onSurface: "#e4e1e8",
   onSurfaceVariant: "#cbc3d7",
   primary: "#d0bcff",
-  primaryContainer: "#a078ff",
+  primaryContainer: "#8b5cf6",
   onPrimaryContainer: "#340080",
-  secondary: "#a078ff",
+  secondary: "#8b5cf6",
   tertiary: "#5edf81",
   outline: "#958ea0",
   outlineVariant: "#494454",
@@ -43,7 +43,7 @@ export default function ContactPageContent() {
             <span style={{ color: C.onSurfaceVariant, fontSize: "10px", fontFamily: "monospace", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase" }}>{t("common.getInTouch")}</span>
           </div>
           <h1 style={{ fontFamily: "var(--font-outfit), Outfit, sans-serif", fontSize: "clamp(36px, 5vw, 56px)", lineHeight: "1.05", fontWeight: 800, letterSpacing: "-0.03em", textTransform: "uppercase", margin: "0 0 1.5rem", maxWidth: "900px" }}>
-            <span className="text-shimmer">{t("contact.title")}</span>
+            <span className="hero-title-shimmer">{t("contact.title")}</span>
           </h1>
           <p style={{ fontSize: "18px", lineHeight: "28px", color: C.onSurfaceVariant, maxWidth: "640px", marginBottom: "2rem" }}>
             {t("contact.subtitle")}

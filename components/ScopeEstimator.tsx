@@ -11,7 +11,7 @@ const C = {
   onSurface: "#e4e1e8",
   onSurfaceVariant: "#cbc3d7",
   primary: "#d0bcff",
-  primaryContainer: "#a078ff",
+  primaryContainer: "#8b5cf6",
   onPrimaryContainer: "#340080",
   outline: "#958ea0",
   outlineVariant: "#494454",

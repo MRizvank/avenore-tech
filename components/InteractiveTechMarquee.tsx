@@ -67,7 +67,7 @@ export default function InteractiveTechMarquee() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = "#d0bcff";
-              e.currentTarget.style.borderColor = "#a078ff";
+              e.currentTarget.style.borderColor = "#8b5cf6";
               e.currentTarget.style.transform = "scale(1.05)";
               e.currentTarget.style.backgroundColor = "rgba(42,41,46,0.8)";
             }}
@@ -78,7 +78,7 @@ export default function InteractiveTechMarquee() {
               e.currentTarget.style.backgroundColor = "rgba(31,31,36,0.5)";
             }}
           >
-            <span className="material-symbols-outlined" style={{ color: "#a078ff", fontSize: "24px" }}>terminal</span>
+            <span className="material-symbols-outlined" style={{ color: "#8b5cf6", fontSize: "24px" }}>terminal</span>
             {tech}
           </div>
         ))}
