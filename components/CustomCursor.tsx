@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 // Elements that switch the cursor into its "interactive" state.
@@ -11,16 +11,9 @@ const GRAB_TARGETS = "[data-cursor='grab']";
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
-  const [hasMouse, setHasMouse] = useState(false);
-
   useEffect(() => {
-    if (window.matchMedia("(pointer: fine)").matches) {
-      setHasMouse(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!hasMouse) return;
+    // Only take over the cursor on devices with a real pointer.
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const cursor = cursorRef.current;
     const follower = followerRef.current;
@@ -102,7 +95,8 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       const next = e.relatedTarget as HTMLElement | null;
       if (target.closest(HOVER_TARGETS) && !next?.closest(HOVER_TARGETS)) {
-        next?.closest(GRAB_TARGETS) ? setGrab(true) : setInteractive(false);
+        if (next?.closest(GRAB_TARGETS)) setGrab(true);
+        else setInteractive(false);
       } else if (target.closest(GRAB_TARGETS) && !next?.closest(GRAB_TARGETS)) {
         setGrab(false);
       }
@@ -130,9 +124,7 @@ export default function CustomCursor() {
       gsap.ticker.remove(tick);
       root.classList.remove("has-custom-cursor");
     };
-  }, [hasMouse]);
-
-  if (!hasMouse) return null;
+  }, []);
 
   return (
     <>

@@ -1,7 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import CalButton from "@/components/CalButton";
+import CaseStudyStack, { type CaseStudy } from "@/components/CaseStudyStack";
 import ParticleHero from "@/components/ParticleHero";
 import StructuredData from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,36 +27,32 @@ const C = {
   outlineVariant: "#494454",
 };
 
-const primaryBtn = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "6px",
-  padding: "10px 18px",
-  borderRadius: "9999px",
-  backgroundColor: C.onSurface,
-  color: "#131317",
-  fontSize: "13px",
-  fontWeight: 700,
-  textDecoration: "none",
-};
-
-const secondaryBtn = {
-  display: "inline-flex",
-  alignItems: "center",
-  gap: "6px",
-  padding: "10px 18px",
-  borderRadius: "9999px",
-  backgroundColor: "rgba(208,188,255,0.15)",
-  color: C.primary,
-  fontSize: "13px",
-  fontWeight: 600,
-  textDecoration: "none",
-};
-
 export default function WorkPageContent() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const rootRef = useRef<HTMLDivElement>(null);
 
-  const cases = [
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      tl.from("[data-hero-badge]", { y: -16, opacity: 0, duration: 0.8 }, 0.05)
+        .from("[data-hero-word]", { yPercent: 115, duration: 1.1, stagger: 0.07 }, 0.15)
+        .from("[data-hero-sub]", { y: 24, opacity: 0, duration: 0.9 }, 0.55)
+        .from("[data-hero-tag]", { y: 12, opacity: 0, duration: 0.6, stagger: 0.08 }, 0.75);
+
+      gsap.from("[data-cta] > *", {
+        y: 28,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: "[data-cta]", start: "top 80%", once: true },
+      });
+    },
+    { scope: rootRef, dependencies: [lang], revertOnUpdate: true },
+  );
+
+  const cases: CaseStudy[] = [
     {
       id: "01",
       name: "SEQUIFI",
@@ -205,7 +205,7 @@ export default function WorkPageContent() {
   ];
 
   return (
-    <div style={{ backgroundColor: C.surface }}>
+    <div ref={rootRef} style={{ backgroundColor: C.surface }}>
       <StructuredData type="work" />
 
       {/* ── HERO ── */}
@@ -262,6 +262,7 @@ export default function WorkPageContent() {
           }}
         >
           <div
+            data-hero-badge
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -326,9 +327,39 @@ export default function WorkPageContent() {
               maxWidth: "900px",
             }}
           >
-            <span className="hero-title-shimmer">{t("work.title")}</span>
+            <span
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                columnGap: "0.22em",
+              }}
+            >
+              {t("work.title")
+                .split(" ")
+                .map((word, i) => (
+                  <span
+                    key={`${word}-${i}`}
+                    style={{
+                      display: "inline-block",
+                      overflow: "hidden",
+                      paddingBottom: "0.08em",
+                      marginBottom: "-0.08em",
+                    }}
+                  >
+                    <span
+                      data-hero-word
+                      className="hero-title-shimmer"
+                      style={{ display: "inline-block" }}
+                    >
+                      {word}
+                    </span>
+                  </span>
+                ))}
+            </span>
           </h1>
           <p
+            data-hero-sub
             style={{
               fontSize: "18px",
               lineHeight: "28px",
@@ -354,9 +385,9 @@ export default function WorkPageContent() {
               textTransform: "uppercase",
             }}
           >
-            <span style={{ color: C.onSurface }}>{t("work.hero.tag1")}</span>
-            <span style={{ color: C.onSurface }}>{t("work.hero.tag2")}</span>
-            <span style={{ color: C.onSurface }}>{t("work.hero.tag3")}</span>
+            <span data-hero-tag style={{ color: C.onSurface }}>{t("work.hero.tag1")}</span>
+            <span data-hero-tag style={{ color: C.onSurface }}>{t("work.hero.tag2")}</span>
+            <span data-hero-tag style={{ color: C.onSurface }}>{t("work.hero.tag3")}</span>
           </div>
         </div>
       </section>
@@ -375,236 +406,14 @@ export default function WorkPageContent() {
             gap: "2rem",
           }}
         >
-          {cases.map((c) => (
-            <article
-              key={c.id}
-              style={{
-                borderRadius: "1.5rem",
-                backgroundColor: C.surfaceLowest,
-                padding: "2.5rem",
-                gap: "2.5rem",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              className="grid grid-cols-1 lg:grid-cols-2"
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                  order: c.imgRight ? 1 : 2,
-                }}
-                className={c.imgRight ? "lg:order-1" : "lg:order-2"}
-              >
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
-                >
-                  {c.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      style={{
-                        padding: "3px 10px",
-                        borderRadius: "9999px",
-                        backgroundColor: C.surfaceContainer,
-                        color: c.tagColor,
-                        fontSize: "10px",
-                        fontFamily: "monospace",
-                        fontWeight: 600,
-                        letterSpacing: "0.08em",
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <span
-                  style={{
-                    color: C.outline,
-                    fontSize: "10px",
-                    fontFamily: "monospace",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {c.id} / {t("work.caseStudy")}
-                </span>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-outfit)",
-                    fontSize: "clamp(32px, 5vw, 48px)",
-                    lineHeight: "1.1",
-                    fontWeight: 800,
-                    letterSpacing: "-0.025em",
-                    color: C.onSurface,
-                    margin: 0,
-                  }}
-                >
-                  {c.name}
-                </h2>
-                <p
-                  style={{
-                    color: c.tagColor,
-                    fontSize: "20px",
-                    fontFamily: "var(--font-outfit)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {c.sub}
-                </p>
-                <p
-                  style={{
-                    color: C.onSurfaceVariant,
-                    fontSize: "15px",
-                    lineHeight: "24px",
-                  }}
-                >
-                  {c.desc}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {c.stats.map(([v, l]) => (
-                    <div
-                      key={l}
-                      style={{
-                        padding: "0.75rem",
-                        borderRadius: "12px",
-                        backgroundColor: C.surfaceLow,
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: c.statColor,
-                          fontSize: "20px",
-                          fontFamily: "var(--font-outfit)",
-                          fontWeight: 700,
-                          display: "block",
-                        }}
-                      >
-                        {v}
-                      </span>
-                      <span
-                        style={{
-                          color: C.outline,
-                          fontSize: "10px",
-                          fontFamily: "monospace",
-                          fontWeight: 600,
-                          letterSpacing: "0.1em",
-                          textTransform: "uppercase",
-                          marginTop: "4px",
-                          display: "block",
-                        }}
-                      >
-                        {l}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.75rem",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  {c.links ? (
-                    c.links.map((link, i) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={i === 0 ? primaryBtn : secondaryBtn}
-                      >
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ fontSize: "16px" }}
-                        >
-                          {link.icon}
-                        </span>
-                        {link.label}
-                      </a>
-                    ))
-                  ) : (
-                    <>
-                      <a href="#" style={primaryBtn}>
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ fontSize: "16px" }}
-                        >
-                          file_download
-                        </span>
-                        {t("work.appStore")}
-                      </a>
-                      <a href="#" style={secondaryBtn}>
-                        {t("common.viewCaseStudy")}
-                        <span
-                          className="material-symbols-outlined"
-                          style={{ fontSize: "16px" }}
-                        >
-                          arrow_forward
-                        </span>
-                      </a>
-                    </>
-                  )}
-                </div>
-              </div>
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: "1rem",
-                  overflow: "hidden",
-                  backgroundColor: C.surfaceLow,
-                  minHeight: "360px",
-                  order: c.imgRight ? 2 : 1,
-                }}
-                className={c.imgRight ? "lg:order-2" : "lg:order-1"}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={c.img}
-                  alt={c.name}
-                  width="800"
-                  height="600"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "12px",
-                    right: "12px",
-                    padding: "4px 12px",
-                    borderRadius: "9999px",
-                    backgroundColor: "rgba(14,14,18,0.9)",
-                    backdropFilter: "blur(12px)",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                  }}
-                >
-                  <span
-                    className="material-symbols-outlined"
-                    style={{ color: c.badge.color, fontSize: "14px" }}
-                  >
-                    {c.badge.icon}
-                  </span>
-                  <span
-                    style={{
-                      color: c.badge.color,
-                      fontSize: "10px",
-                      fontFamily: "monospace",
-                      fontWeight: 600,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {c.badge.text}
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
+          <CaseStudyStack
+            cases={cases}
+            labels={{
+              caseStudy: t("work.caseStudy"),
+              appStore: t("work.appStore"),
+              viewCaseStudy: t("common.viewCaseStudy"),
+            }}
+          />
         </div>
       </section>
 
@@ -615,6 +424,7 @@ export default function WorkPageContent() {
       >
         <div style={{ maxWidth: "80rem", margin: "0 auto" }}>
           <div
+            data-cta
             style={{
               borderRadius: "1.5rem",
               backgroundColor: C.surfaceContainerHigh,
