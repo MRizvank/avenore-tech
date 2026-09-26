@@ -2,6 +2,7 @@
 
 import ParticleHero from "@/components/ParticleHero";
 import Link from "next/link";
+import CalButton from "@/components/CalButton";
 import StructuredData from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -724,6 +725,8 @@ export default function AboutPageContent() {
               "FASH",
               "SEQUIFI",
               "MCC DUBAI",
+              "WEYAHOM",
+              "BIM CAREER ACADEMY",
               "SR INNOVATIONS",
               "KAPITAL GCC",
             ].map((brand) => (
@@ -833,9 +836,8 @@ export default function AboutPageContent() {
             >
               {t("nav.startProject")} ↗
             </Link>
-            <Link
-              href="/contact"
-              style={{
+            <CalButton
+                style={{
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -856,7 +858,7 @@ export default function AboutPageContent() {
                 calendar_today
               </span>
               {t("nav.bookCall")}
-            </Link>
+            </CalButton>
           </div>
         </div>
       </section>

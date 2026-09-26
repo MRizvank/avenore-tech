@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SocialSidebar from "@/components/SocialSidebar";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import CustomCursor from "@/components/CustomCursor";
+import CalEmbed from "@/components/CalEmbed";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const outfit = Outfit({
@@ -167,6 +168,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <CustomCursor />
+          <CalEmbed />
           <SmoothScrollProvider>
             <Header />
             <SocialSidebar />

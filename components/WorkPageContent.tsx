@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CalButton from "@/components/CalButton";
 import ParticleHero from "@/components/ParticleHero";
 import StructuredData from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -20,6 +21,32 @@ const C = {
   tertiary: "#5edf81",
   outline: "#958ea0",
   outlineVariant: "#494454",
+};
+
+const primaryBtn = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "6px",
+  padding: "10px 18px",
+  borderRadius: "9999px",
+  backgroundColor: C.onSurface,
+  color: "#131317",
+  fontSize: "13px",
+  fontWeight: 700,
+  textDecoration: "none",
+};
+
+const secondaryBtn = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "6px",
+  padding: "10px 18px",
+  borderRadius: "9999px",
+  backgroundColor: "rgba(208,188,255,0.15)",
+  color: C.primary,
+  fontSize: "13px",
+  fontWeight: 600,
+  textDecoration: "none",
 };
 
 export default function WorkPageContent() {
@@ -103,6 +130,77 @@ export default function WorkPageContent() {
         text: t("portfolio.mcc.status"),
         color: C.primary,
       },
+    },
+    {
+      id: "04",
+      name: "WEYAHOM",
+      sub: t("portfolio.wey.sub"),
+      tags: [
+        t("portfolio.wey.badge1"),
+        t("portfolio.wey.badge2"),
+        "FLUTTER",
+        "iOS & ANDROID",
+      ],
+      tagColor: C.primary,
+      stats: [
+        ["2", t("portfolio.wey.stat1l")],
+        [t("portfolio.wey.stat2v"), t("portfolio.wey.stat2l")],
+        ["8", t("portfolio.wey.stat3l")],
+      ],
+      statColor: C.primary,
+      img: "/work/weyahom.webp",
+      desc: t("portfolio.wey.desc"),
+      imgRight: false,
+      badge: {
+        icon: "child_care",
+        text: t("portfolio.wey.status"),
+        color: C.tertiary,
+      },
+      links: [
+        {
+          label: t("work.appStore"),
+          href: "https://apps.apple.com/app/id6784548076",
+          icon: "phone_iphone",
+        },
+        {
+          label: "Google Play",
+          href: "https://play.google.com/store/apps/details?id=com.apptology.Weyahom",
+          icon: "android",
+        },
+      ],
+    },
+    {
+      id: "05",
+      name: "BIM CAREER ACADEMY",
+      sub: t("portfolio.bim.sub"),
+      tags: [
+        t("portfolio.bim.badge1"),
+        t("portfolio.bim.badge2"),
+        "NEXT.JS",
+        t("portfolio.bim.badge3"),
+      ],
+      tagColor: C.tertiary,
+      stats: [
+        ["4", t("portfolio.bim.stat1l")],
+        ["13", t("portfolio.bim.stat2l")],
+        [t("portfolio.bim.stat3v"), t("portfolio.bim.stat3l")],
+      ],
+      statColor: C.tertiary,
+      img: "/work/bim-career-academy.webp",
+      desc: t("portfolio.bim.desc"),
+      imgRight: true,
+      badge: {
+        icon: "language",
+        text: t("portfolio.bim.status"),
+        color: C.tertiary,
+      },
+      links: [
+        {
+          label: t("work.visitSite"),
+          href: "https://bimcareeracademy.com/",
+          icon: "open_in_new",
+        },
+      ],
     },
   ];
 
@@ -405,56 +503,51 @@ export default function WorkPageContent() {
                 <div
                   style={{
                     display: "flex",
+                    flexWrap: "wrap",
                     gap: "0.75rem",
                     marginTop: "0.5rem",
                   }}
                 >
-                  <a
-                    href="#"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      padding: "10px 18px",
-                      borderRadius: "9999px",
-                      backgroundColor: C.onSurface,
-                      color: "#131317",
-                      fontSize: "13px",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                    }}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: "16px" }}
-                    >
-                      file_download
-                    </span>
-                    {t("work.appStore")}
-                  </a>
-                  <a
-                    href="#"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      padding: "10px 18px",
-                      borderRadius: "9999px",
-                      backgroundColor: "rgba(208,188,255,0.15)",
-                      color: C.primary,
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      textDecoration: "none",
-                    }}
-                  >
-                    {t("common.viewCaseStudy")}
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: "16px" }}
-                    >
-                      arrow_forward
-                    </span>
-                  </a>
+                  {c.links ? (
+                    c.links.map((link, i) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={i === 0 ? primaryBtn : secondaryBtn}
+                      >
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: "16px" }}
+                        >
+                          {link.icon}
+                        </span>
+                        {link.label}
+                      </a>
+                    ))
+                  ) : (
+                    <>
+                      <a href="#" style={primaryBtn}>
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: "16px" }}
+                        >
+                          file_download
+                        </span>
+                        {t("work.appStore")}
+                      </a>
+                      <a href="#" style={secondaryBtn}>
+                        {t("common.viewCaseStudy")}
+                        <span
+                          className="material-symbols-outlined"
+                          style={{ fontSize: "16px" }}
+                        >
+                          arrow_forward
+                        </span>
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
               <div
@@ -620,9 +713,8 @@ export default function WorkPageContent() {
                   north_east
                 </span>
               </Link>
-              <Link
-                href="/contact"
-                style={{
+              <CalButton
+                  style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "6px",
@@ -642,7 +734,7 @@ export default function WorkPageContent() {
                   calendar_today
                 </span>
                 {t("nav.bookCall")}
-              </Link>
+              </CalButton>
             </div>
           </div>
         </div>

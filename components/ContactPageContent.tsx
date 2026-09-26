@@ -1,7 +1,8 @@
 "use client";
 
 import ParticleHero from "@/components/ParticleHero";
-import ContactFormClient from "@/components/ContactFormClient";
+import InquiryForm from "@/components/InquiryForm";
+import CalButton from "@/components/CalButton";
 import StructuredData from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -280,8 +281,7 @@ export default function ContactPageContent() {
               >
                 {t("contact.sidebar.discovery.desc")}
               </p>
-              <a
-                href="#"
+              <CalButton
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -310,7 +310,7 @@ export default function ContactPageContent() {
                 >
                   arrow_forward
                 </span>
-              </a>
+              </CalButton>
             </div>
 
             <div
@@ -629,7 +629,7 @@ export default function ContactPageContent() {
 
           {/* RIGHT FORM */}
           <div className="lg:col-span-7">
-            <ContactFormClient />
+            <InquiryForm />
           </div>
         </div>
 

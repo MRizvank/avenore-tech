@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CalButton from "@/components/CalButton";
 import ScopeEstimator from "@/components/ScopeEstimator";
 import ParticleHero from "@/components/ParticleHero";
 import StructuredData from "@/components/StructuredData";
@@ -1329,9 +1330,8 @@ export default function ServicesPageContent() {
                 north_east
               </span>
             </Link>
-            <Link
-              href="/contact"
-              style={{
+            <CalButton
+                style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
@@ -1351,7 +1351,7 @@ export default function ServicesPageContent() {
                 calendar_today
               </span>
               {t("nav.bookCall")}
-            </Link>
+            </CalButton>
           </div>
         </div>
       </section>

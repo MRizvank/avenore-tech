@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CalButton from "@/components/CalButton";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -142,8 +143,7 @@ export default function Header() {
             {/* Language Switcher — always visible */}
             <LanguageSwitcher />
 
-            <Link
-              href="/contact"
+            <CalButton
               className="hidden md:inline-flex"
               style={{
                 alignItems: "center",
@@ -166,7 +166,7 @@ export default function Header() {
                 calendar_today
               </span>
               <span>{t("nav.bookCall")}</span>
-            </Link>
+            </CalButton>
 
             <Link
               href="/contact"

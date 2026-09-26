@@ -940,3 +940,16 @@
     text-align: center;
   }
 }
+
+/* =========================================================================
+   CUSTOM CURSOR
+   components/CustomCursor.tsx adds `has-custom-cursor` to <html> on
+   fine-pointer devices; it only renders at lg+ (1024px). Hide the native
+   cursor under exactly the same conditions so there is a single cursor.
+   ========================================================================= */
+@media (pointer: fine) and (min-width: 1024px) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
