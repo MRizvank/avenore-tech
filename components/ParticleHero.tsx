@@ -23,7 +23,7 @@ export default function ParticleHero() {
       },
     },
     particles: {
-      color: { value: ["#d0bcff", "#8b5cf6", "#5edf81", "#ffffff"] },
+      color: { value: ["#8b5cf6", "#8b5cf6", "#5edf81", "#ffffff"] },
       links: {
         color: "#8b5cf6",
         distance: 130,

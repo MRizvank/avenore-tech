@@ -119,7 +119,7 @@ export default function LanguageSwitcher() {
                   cursor: "pointer",
                   transition: "background-color 0.1s",
                   textAlign: "left",
-                  color: isActive ? "#d0bcff" : "#cbc3d7",
+                  color: isActive ? "#8b5cf6" : "#cbc3d7",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive)

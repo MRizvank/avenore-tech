@@ -34,13 +34,18 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.1,
+        ease: "power2.out",
+      });
     };
 
     window.addEventListener("mousemove", onMouseMove);
 
     gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio()); 
+      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
       pos.x += (mouse.x - pos.x) * dt;
       pos.y += (mouse.y - pos.y) * dt;
       xSet(pos.x);
@@ -52,7 +57,12 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       if (target.closest("a, button, input, [role='button']")) {
         gsap.to(cursor, { scale: 0, duration: 0.2 });
-        gsap.to(follower, { scale: 1.5, backgroundColor: "rgba(208,188,255,0.1)", border: "1px solid #d0bcff", duration: 0.2 });
+        gsap.to(follower, {
+          scale: 1.5,
+          backgroundColor: "rgba(208,188,255,0.1)",
+          border: "1px solid #8b5cf6",
+          duration: 0.2,
+        });
       }
     };
 
@@ -60,7 +70,12 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
       if (target.closest("a, button, input, [role='button']")) {
         gsap.to(cursor, { scale: 1, duration: 0.2 });
-        gsap.to(follower, { scale: 1, backgroundColor: "transparent", border: "1px solid rgba(160,120,255,0.3)", duration: 0.2 });
+        gsap.to(follower, {
+          scale: 1,
+          backgroundColor: "transparent",
+          border: "1px solid rgba(160,120,255,0.3)",
+          duration: 0.2,
+        });
       }
     };
 
@@ -86,7 +101,7 @@ export default function CustomCursor() {
           left: 0,
           width: "6px",
           height: "6px",
-          backgroundColor: "#d0bcff",
+          backgroundColor: "#8b5cf6",
           borderRadius: "50%",
           pointerEvents: "none",
           zIndex: 9999,

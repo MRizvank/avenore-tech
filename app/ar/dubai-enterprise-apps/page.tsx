@@ -15,7 +15,7 @@ const C = {
   surfaceLowest: "#0e0e12",
   onSurface: "#e4e1e8",
   onSurfaceVariant: "#cbc3d7",
-  primary: "#d0bcff",
+  primary: "#8b5cf6",
   outline: "#958ea0",
   tertiary: "#5edf81",
 };
@@ -38,7 +38,7 @@ export default function DubaiEnterpriseAppsAr() {
             في أسواق ديناميكية مثل دبي، لا تكفي التطبيقات التقليدية. نحن في Avenore Tech نتشارك مع المؤسسات والجهات الحكومية لبناء أنظمة داخلية شديدة الأمان (Enterprise Apps)، وتطبيقات B2B متكاملة تعتمد على بنية سحابية مقاومة للأخطاء (Zero-Trust Architecture).
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <Link href="/contact" style={{ backgroundColor: C.primary, color: "#000", padding: "14px 28px", borderRadius: "9999px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
+            <Link href="/contact" style={{ backgroundColor: C.primary, color: "#ffffff", padding: "14px 28px", borderRadius: "9999px", fontWeight: 700, textDecoration: "none", fontSize: "15px" }}>
               حدد موعداً استشارياً
             </Link>
             <Link href="/work" style={{ backgroundColor: C.surfaceLow, color: C.onSurface, padding: "14px 28px", borderRadius: "9999px", fontWeight: 600, textDecoration: "none", border: `1px solid ${C.outline}60`, fontSize: "15px" }}>
@@ -108,7 +108,7 @@ export default function DubaiEnterpriseAppsAr() {
               <p style={{ fontSize: "16px", color: C.onSurfaceVariant, lineHeight: 1.6, marginBottom: "2rem" }}>
                 تطوير تطبيقات الأفراد (B2C) يختلف جذرياً عن هندسة تطبيقات الشركات (B2B). التطبيقات المؤسسية تتطلب هندسة عكسية للمخاطر وتخطيطاً معمارياً دقيقاً قبل كتابة أي سطر برمجي.
               </p>
-              <Link href="/contact" style={{ backgroundColor: "#000", color: C.primary, border: `1px solid ${C.primary}`, padding: "14px 28px", borderRadius: "9999px", fontWeight: 700, textDecoration: "none", display: "inline-block" }}>
+              <Link href="/contact" style={{ backgroundColor: "#000", color: "#ffffff", border: `1px solid ${C.primary}`, padding: "14px 28px", borderRadius: "9999px", fontWeight: 700, textDecoration: "none", display: "inline-block" }}>
                 ابدأ رحلة التحول الرقمي →
               </Link>
             </div>

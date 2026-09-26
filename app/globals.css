@@ -17,7 +17,7 @@
   --color-surface-container: #1f1f24;
   --color-surface-container-high: #2a292e;
   --color-surface-container-highest: #353439;
-  --color-surface-tint: #d0bcff;
+  --color-surface-tint: #8b5cf6;
 
   --color-on-surface: #e4e1e8;
   --color-on-surface-variant: #cbc3d7;
@@ -25,12 +25,12 @@
   --color-inverse-surface: #e4e1e8;
   --color-inverse-on-surface: #303035;
 
-  --color-primary: #d0bcff;
+  --color-primary: #8b5cf6;
   --color-on-primary: #3c0091;
   --color-primary-container: #8b5cf6;
   --color-on-primary-container: #340080;
   --color-primary-fixed: #e9ddff;
-  --color-primary-fixed-dim: #d0bcff;
+  --color-primary-fixed-dim: #8b5cf6;
   --color-on-primary-fixed: #23005c;
   --color-on-primary-fixed-variant: #5516be;
   --color-inverse-primary: #6d3bd7;
@@ -199,11 +199,11 @@
   border-radius: inherit;
   background: conic-gradient(
     from var(--border-angle),
-    #d0bcff44,
+    #8b5cf644,
     #8b5cf6,
     #5edf81,
     #8b5cf6,
-    #d0bcff44
+    #8b5cf644
   );
   animation: border-spin 4s linear infinite;
   z-index: -1;
@@ -416,7 +416,7 @@
     color: #303035;
   }
   .text-surface-tint {
-    color: #d0bcff;
+    color: #8b5cf6;
   }
   .text-outline {
     color: #958ea0;
@@ -453,7 +453,7 @@
     background-color: #353439;
   }
   .bg-primary {
-    background-color: #d0bcff;
+    background-color: #8b5cf6;
   }
   .bg-primary-container {
     background-color: #8b5cf6;
@@ -490,7 +490,7 @@
     border-color: #494454;
   }
   .border-primary {
-    border-color: #d0bcff;
+    border-color: #8b5cf6;
   }
   .border-secondary {
     border-color: #8b5cf6;

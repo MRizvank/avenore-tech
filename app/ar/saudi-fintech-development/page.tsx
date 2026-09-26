@@ -16,7 +16,7 @@ const C = {
   surfaceLowest: "#0e0e12",
   onSurface: "#e4e1e8",
   onSurfaceVariant: "#cbc3d7",
-  primary: "#d0bcff",
+  primary: "#8b5cf6",
   outline: "#958ea0",
   tertiary: "#5edf81",
   error: "#ffb4ab", // Used for security alerts/highlights
@@ -102,7 +102,7 @@ export default function SaudiFintechDevelopmentAr() {
               href="/contact"
               style={{
                 backgroundColor: C.primary,
-                color: "#000",
+                color: "#ffffff",
                 padding: "14px 28px",
                 borderRadius: "9999px",
                 fontWeight: 700,
@@ -414,7 +414,7 @@ export default function SaudiFintechDevelopmentAr() {
                 href="/contact"
                 style={{
                   backgroundColor: "#000",
-                  color: C.primary,
+                  color: "#ffffff",
                   border: `1px solid ${C.primary}`,
                   padding: "14px 28px",
                   borderRadius: "9999px",

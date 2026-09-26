@@ -6,7 +6,7 @@ const C = {
   surfaceLowest: "#0e0e12",
   onSurface: "#e4e1e8",
   onSurfaceVariant: "#cbc3d7",
-  primary: "#d0bcff",
+  primary: "#8b5cf6",
   secondary: "#8b5cf6",
   tertiary: "#5edf81",
   outline: "#958ea0",

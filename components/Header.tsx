@@ -33,7 +33,9 @@ export default function Header() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -68,7 +70,12 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            style={{ display: "flex", alignItems: "center", gap: "0", textDecoration: "none" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0",
+              textDecoration: "none",
+            }}
           >
             <Image
               src="/logo.png"
@@ -76,18 +83,33 @@ export default function Header() {
               width={86}
               height={86}
               priority={true}
-              style={{ height: "86px", width: "auto", flexShrink: 0, margin: "0 -12px 0 -8px" }}
+              style={{
+                height: "86px",
+                width: "auto",
+                flexShrink: 0,
+                margin: "0 -12px 0 -8px",
+              }}
             />
             <span
               className="font-headline-sm text-headline-sm"
-              style={{ color: "#e4e1e8", fontWeight: 700, letterSpacing: "-0.015em", fontSize: "20px", marginTop: "14px", marginLeft: "-5px" }}
+              style={{
+                color: "#e4e1e8",
+                fontWeight: 700,
+                letterSpacing: "-0.015em",
+                fontSize: "20px",
+                marginTop: "14px",
+                marginLeft: "-5px",
+              }}
             >
               AVENORE
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav style={{ alignItems: "center", gap: "1.5rem" }} className="hidden lg:flex">
+          <nav
+            style={{ alignItems: "center", gap: "1.5rem" }}
+            className="hidden lg:flex"
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -109,7 +131,14 @@ export default function Header() {
           </nav>
 
           {/* CTAs, Language Switcher & Mobile Toggle */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem",
+              flexShrink: 0,
+            }}
+          >
             {/* Language Switcher — always visible */}
             <LanguageSwitcher />
 
@@ -130,7 +159,12 @@ export default function Header() {
                 transition: "all 0.15s",
               }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>calendar_today</span>
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "16px" }}
+              >
+                calendar_today
+              </span>
               <span>{t("nav.bookCall")}</span>
             </Link>
 
@@ -149,21 +183,34 @@ export default function Header() {
                 textDecoration: "none",
                 transition: "all 0.15s",
                 position: "relative",
-                zIndex: 1
+                zIndex: 1,
               }}
             >
               <span>{t("nav.startProject")}</span>
-              <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>north_east</span>
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "16px" }}
+              >
+                north_east
+              </span>
             </Link>
 
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden flex items-center justify-center p-2 rounded-full hover:bg-[rgba(255,255,255,0.1)] transition-colors"
-              style={{ color: "#e4e1e8", cursor: "pointer", border: "none", background: "transparent" }}
+              style={{
+                color: "#e4e1e8",
+                cursor: "pointer",
+                border: "none",
+                background: "transparent",
+              }}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: "28px" }}>
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "28px" }}
+              >
                 {isMobileMenuOpen ? "close" : "menu"}
               </span>
             </button>
@@ -191,7 +238,9 @@ export default function Header() {
             direction: isRTL ? "rtl" : "ltr",
           }}
         >
-          <nav style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          <nav
+            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -213,7 +262,14 @@ export default function Header() {
             })}
           </nav>
 
-          <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div
+            style={{
+              marginTop: "auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            }}
+          >
             <Link
               href="/contact"
               className="glow-border"
@@ -232,17 +288,41 @@ export default function Header() {
                 textDecoration: "none",
                 position: "relative",
                 zIndex: 1,
-                width: "100%"
+                width: "100%",
               }}
             >
               <span>{t("nav.startProject")}</span>
-              <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>north_east</span>
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "18px" }}
+              >
+                north_east
+              </span>
             </Link>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem", color: "#cbc3d7", fontSize: "13px", marginTop: "1rem" }}>
-              <a href="mailto:contact@avenore.tech" style={{ color: "#d0bcff", textDecoration: "none" }}>contact@avenore.tech</a>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                color: "#cbc3d7",
+                fontSize: "13px",
+                marginTop: "1rem",
+              }}
+            >
+              <a
+                href="mailto:contact@avenore.tech"
+                style={{ color: "#8b5cf6", textDecoration: "none" }}
+              >
+                contact@avenore.tech
+              </a>
               <span>•</span>
-              <a href="https://wa.me/96567634440" style={{ color: "inherit", textDecoration: "none" }}>WhatsApp</a>
+              <a
+                href="https://wa.me/96567634440"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
