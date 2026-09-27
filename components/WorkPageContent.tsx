@@ -5,10 +5,11 @@ import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CalButton from "@/components/CalButton";
-import CaseStudyStack, { type CaseStudy } from "@/components/CaseStudyStack";
+import CaseStudyStack from "@/components/CaseStudyStack";
 import ParticleHero from "@/components/ParticleHero";
 import StructuredData from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildCaseStudies } from "@/lib/caseStudies";
 
 const C = {
   surface: "#131317",
@@ -52,157 +53,7 @@ export default function WorkPageContent() {
     { scope: rootRef, dependencies: [lang], revertOnUpdate: true },
   );
 
-  const cases: CaseStudy[] = [
-    {
-      id: "01",
-      name: "SEQUIFI",
-      sub: t("portfolio.seq.sub"),
-      tags: [
-        t("portfolio.seq.badge1"),
-        t("portfolio.seq.badge2"),
-        "FIELD SALES",
-        "iOS & ANDROID",
-      ],
-      tagColor: C.primary,
-      stats: [
-        [t("portfolio.seq.stat1v"), t("portfolio.seq.stat1l")],
-        [t("portfolio.seq.stat2v"), t("portfolio.seq.stat2l")],
-        [t("portfolio.seq.stat3v"), t("portfolio.seq.stat3l")],
-      ],
-      statColor: C.primary,
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDDsxBnxeCD6XDptNQo2JCgCh3T-sId2JpjS9dKMHALua8QOvBiaOjnXbzXG0dYXnSvGJALYukPCDK9kWLz0-eJ7ZVAheoLUyCOk3S_bllfrCYK28H3t5kHgKnFlHsjr-vA73FV7DnrlEi8FG_x0Ct_4mCJGb0LJgjmvt1dqeWfy4o6Pg-S3LI44NDKOvLRKyPTCabV6XqBbx40GLpuJXUmd3YYd37VUNjVeWxa9Zu1hPmcyrbOiciQsQ",
-      desc: t("portfolio.seq.desc"),
-      imgRight: true,
-      badge: {
-        icon: "signal_cellular_alt",
-        text: t("portfolio.seq.status"),
-        color: C.tertiary,
-      },
-    },
-    {
-      id: "02",
-      name: "FASH",
-      sub: t("portfolio.fash.sub"),
-      tags: [
-        t("portfolio.fash.badge1"),
-        t("portfolio.fash.badge2"),
-        "MULTI-VENDOR",
-        "iOS & ANDROID",
-      ],
-      tagColor: C.secondary,
-      stats: [
-        [t("portfolio.fash.stat1v"), t("portfolio.fash.stat1l")],
-        [t("portfolio.fash.stat2v"), t("portfolio.fash.stat2l")],
-        [t("portfolio.fash.stat3v"), t("portfolio.fash.stat3l")],
-      ],
-      statColor: C.secondary,
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDRUufcqmMh4VWWuVpcOwi-famrfx-2kUusGrhkklJJ8pM8YiI-UOTejpzJKZPDHyI-yPjKzCzp3QdH6F4qRyVMs15PWK05oKXBQEx-Y3Rdt4V-T3aPKPvdPZlKH5xIZsV7ROgTsf8lxsUJqEXx2dCfW78934MLP-06C_rGaH0Z4v8sArSQnbLF1MrwiAOJvk_rLobTtSWkmE-lXgn9W2q6cPI9JtVw_DVs4U1WfxCzL2JGhmWk2_ftag",
-      desc: t("portfolio.fash.desc"),
-      imgRight: false,
-      badge: {
-        icon: "local_fire_department",
-        text: t("portfolio.fash.status"),
-        color: C.secondary,
-      },
-    },
-    {
-      id: "03",
-      name: "MCC DUBAI",
-      sub: t("portfolio.mcc.sub"),
-      tags: [
-        t("portfolio.mcc.badge1"),
-        t("portfolio.mcc.badge2"),
-        t("portfolio.mcc.badge3"),
-        t("portfolio.mcc.badge4"),
-      ],
-      tagColor: C.tertiary,
-      stats: [
-        [t("portfolio.mcc.stat1v"), t("portfolio.mcc.stat1l")],
-        [t("portfolio.mcc.stat2v"), t("portfolio.mcc.stat2l")],
-        [t("portfolio.mcc.stat3v"), t("portfolio.mcc.stat3l")],
-      ],
-      statColor: C.tertiary,
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA-TUquSS2taI4xb72d6MFbkc1rRU99T4xIAlOtVgeTg1u1ZuRa5Gz2KEHq5FjYdGeyD1VXGBz2g7Mj0Wju21uMIN2L3-qvo1NVfzqEhXnsQy9XszIR7a98W5h6wA51OuTghqDdUqP8eAo1QGBbkDfjgCurp7tKPSPDe_BDoyTh-Wrco4e1_fUFYwD2cmcKyMJBlCgYiF-Db3wKIvXimNmeqv_XAzrUTT5BwWoOzu7KhZ8TTVQ-zoJZfw",
-      desc: t("portfolio.mcc.desc"),
-      imgRight: true,
-      badge: {
-        icon: "lock",
-        text: t("portfolio.mcc.status"),
-        color: C.primary,
-      },
-    },
-    {
-      id: "04",
-      name: "WEYAHOM",
-      sub: t("portfolio.wey.sub"),
-      tags: [
-        t("portfolio.wey.badge1"),
-        t("portfolio.wey.badge2"),
-        "FLUTTER",
-        "iOS & ANDROID",
-      ],
-      tagColor: C.primary,
-      stats: [
-        ["2", t("portfolio.wey.stat1l")],
-        [t("portfolio.wey.stat2v"), t("portfolio.wey.stat2l")],
-        ["8", t("portfolio.wey.stat3l")],
-      ],
-      statColor: C.primary,
-      img: "/work/weyahom.webp",
-      desc: t("portfolio.wey.desc"),
-      imgRight: false,
-      badge: {
-        icon: "child_care",
-        text: t("portfolio.wey.status"),
-        color: C.tertiary,
-      },
-      links: [
-        {
-          label: t("work.appStore"),
-          href: "https://apps.apple.com/app/id6784548076",
-          icon: "phone_iphone",
-        },
-        {
-          label: "Google Play",
-          href: "https://play.google.com/store/apps/details?id=com.apptology.Weyahom",
-          icon: "android",
-        },
-      ],
-    },
-    {
-      id: "05",
-      name: "BIM CAREER ACADEMY",
-      sub: t("portfolio.bim.sub"),
-      tags: [
-        t("portfolio.bim.badge1"),
-        t("portfolio.bim.badge2"),
-        "NEXT.JS",
-        t("portfolio.bim.badge3"),
-      ],
-      tagColor: C.tertiary,
-      stats: [
-        ["4", t("portfolio.bim.stat1l")],
-        ["13", t("portfolio.bim.stat2l")],
-        [t("portfolio.bim.stat3v"), t("portfolio.bim.stat3l")],
-      ],
-      statColor: C.tertiary,
-      img: "/work/bim-career-academy.webp",
-      desc: t("portfolio.bim.desc"),
-      imgRight: true,
-      badge: {
-        icon: "language",
-        text: t("portfolio.bim.status"),
-        color: C.tertiary,
-      },
-      links: [
-        {
-          label: t("work.visitSite"),
-          href: "https://bimcareeracademy.com/",
-          icon: "open_in_new",
-        },
-      ],
-    },
-  ];
+  const cases = buildCaseStudies(t);
 
   return (
     <div ref={rootRef} style={{ backgroundColor: C.surface }}>

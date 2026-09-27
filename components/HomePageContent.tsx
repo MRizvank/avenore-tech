@@ -7,12 +7,14 @@ import InquiryForm from "@/components/InquiryForm";
 import CalButton from "@/components/CalButton";
 import ParticleHero from "@/components/ParticleHero";
 import CapabilityOrbit from "@/components/CapabilityOrbit";
+import CaseStudyPreview from "@/components/CaseStudyPreview";
 import ScrollRevealText from "@/components/ScrollRevealText";
 import UrgencyCards from "@/components/UrgencyCards";
 import StructuredData from "@/components/StructuredData";
 import StudioPanel from "@/components/StudioPanel";
 import TestimonialShowcase from "@/components/TestimonialShowcase";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buildCaseStudies } from "@/lib/caseStudies";
 
 // ─── Shared inline style tokens ───────────────────────────────────────────────
 const C = {
@@ -31,12 +33,6 @@ const C = {
   tertiary: "#5edf81",
   outline: "#958ea0",
   outlineVariant: "#494454",
-};
-
-const card = {
-  backgroundColor: C.surfaceLowest,
-  borderRadius: "1.5rem",
-  padding: "2rem",
 };
 
 export default function HomePageContent() {
@@ -621,382 +617,56 @@ export default function HomePageContent() {
         className="px-margin-mobile lg:px-margin"
       >
         <div style={{ maxWidth: "80rem", margin: "0 auto" }}>
-          <div style={{ marginBottom: "2.5rem" }}>
-            <span
-              style={{
-                color: C.primary,
-                fontSize: "10px",
-                fontFamily: "monospace",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: "8px",
-              }}
-            >
-              {t("portfolio.label")}
-            </span>
-            <h2
-              style={{
-                fontFamily: "var(--font-outfit)",
-                fontSize: "clamp(28px, 4vw, 40px)",
-                lineHeight: "1.2",
-                fontWeight: 700,
-                letterSpacing: "-0.025em",
-                color: C.onSurface,
-                textTransform: "uppercase",
-                margin: "0 0 0.75rem",
-              }}
-            >
-              {t("portfolio.title")}
-            </h2>
-          </div>
-
-          {/* Sequifi Case Study */}
           <div
-            style={{ ...card, gap: "2.5rem", marginBottom: "2rem" }}
-            className="grid grid-cols-1 lg:grid-cols-2"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              gap: "1.25rem 2rem",
+              marginBottom: "2.5rem",
+            }}
           >
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                {[
-                  t("portfolio.seq.badge1"),
-                  t("portfolio.seq.badge2"),
-                  t("portfolio.seq.badge3"),
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      padding: "3px 10px",
-                      borderRadius: "9999px",
-                      backgroundColor: C.surfaceContainer,
-                      color: C.primary,
-                      fontSize: "10px",
-                      fontFamily: "monospace",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div style={{ maxWidth: "40rem" }}>
               <span
-                style={{
-                  color: C.outline,
-                  fontSize: "10px",
-                  fontFamily: "monospace",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {t("portfolio.seq.num")}
-              </span>
-              <h3
-                style={{
-                  fontFamily: "var(--font-outfit)",
-                  fontSize: "40px",
-                  lineHeight: "48px",
-                  fontWeight: 800,
-                  letterSpacing: "-0.025em",
-                  color: C.onSurface,
-                  margin: 0,
-                }}
-              >
-                {t("portfolio.seq.title")}
-              </h3>
-              <p
                 style={{
                   color: C.primary,
-                  fontSize: "20px",
-                  fontFamily: "var(--font-outfit)",
-                  fontWeight: 600,
-                }}
-              >
-                {t("portfolio.seq.sub")}
-              </p>
-              <p
-                style={{
-                  color: C.onSurfaceVariant,
-                  fontSize: "15px",
-                  lineHeight: "24px",
-                }}
-              >
-                {t("portfolio.seq.desc")}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  [
-                    t("portfolio.seq.stat1v"),
-                    t("portfolio.seq.stat1l"),
-                    C.primary,
-                  ],
-                  [
-                    t("portfolio.seq.stat2v"),
-                    t("portfolio.seq.stat2l"),
-                    C.secondary,
-                  ],
-                  [
-                    t("portfolio.seq.stat3v"),
-                    t("portfolio.seq.stat3l"),
-                    C.tertiary,
-                  ],
-                ].map(([v, l, color]) => (
-                  <div
-                    key={l as string}
-                    style={{
-                      padding: "0.75rem",
-                      borderRadius: "12px",
-                      backgroundColor: C.surfaceLow,
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: color as string,
-                        fontSize: "20px",
-                        fontFamily: "var(--font-outfit)",
-                        fontWeight: 700,
-                        display: "block",
-                      }}
-                    >
-                      {v}
-                    </span>
-                    <span
-                      style={{
-                        color: C.outline,
-                        fontSize: "10px",
-                        fontFamily: "monospace",
-                        fontWeight: 600,
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        marginTop: "4px",
-                        display: "block",
-                      }}
-                    >
-                      {l}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div
-              style={{
-                position: "relative",
-                borderRadius: "1rem",
-                overflow: "hidden",
-                backgroundColor: C.surfaceLow,
-                minHeight: "320px",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                width="800"
-                height="600"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDsxBnxeCD6XDptNQo2JCgCh3T-sId2JpjS9dKMHALua8QOvBiaOjnXbzXG0dYXnSvGJALYukPCDK9kWLz0-eJ7ZVAheoLUyCOk3S_bllfrCYK28H3t5kHgKnFlHsjr-vA73FV7DnrlEi8FG_x0Ct_4mCJGb0LJgjmvt1dqeWfy4o6Pg-S3LI44NDKOvLRKyPTCabV6XqBbx40GLpuJXUmd3YYd37VUNjVeWxa9Zu1hPmcyrbOiciQsQ"
-                alt="Sequifi"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "12px",
-                  left: "12px",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  backgroundColor: "rgba(14,14,18,0.9)",
-                  backdropFilter: "blur(12px)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                }}
-              >
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    backgroundColor: C.tertiary,
-                    display: "inline-block",
-                  }}
-                />
-                <span
-                  style={{
-                    color: C.tertiary,
-                    fontSize: "10px",
-                    fontFamily: "monospace",
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {t("portfolio.seq.status")}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* FASH Case Study */}
-          <div
-            style={{ ...card, gap: "2.5rem" }}
-            className="grid grid-cols-1 lg:grid-cols-2"
-          >
-            <div
-              style={{
-                position: "relative",
-                borderRadius: "1rem",
-                overflow: "hidden",
-                backgroundColor: C.surfaceLow,
-                minHeight: "320px",
-                order: 2,
-              }}
-              className="lg:order-1"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                width="800"
-                height="600"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRUufcqmMh4VWWuVpcOwi-famrfx-2kUusGrhkklJJ8pM8YiI-UOTejpzJKZPDHyI-yPjKzCzp3QdH6F4qRyVMs15PWK05oKXBQEx-Y3Rdt4V-T3aPKPvdPZlKH5xIZsV7ROgTsf8lxsUJqEXx2dCfW78934MLP-06C_rGaH0Z4v8sArSQnbLF1MrwiAOJvk_rLobTtSWkmE-lXgn9W2q6cPI9JtVw_DVs4U1WfxCzL2JGhmWk2_ftag"
-                alt="FASH"
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                order: 1,
-              }}
-              className="lg:order-2"
-            >
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                {[
-                  t("portfolio.fash.badge1"),
-                  t("portfolio.fash.badge2"),
-                  t("portfolio.fash.badge3"),
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      padding: "3px 10px",
-                      borderRadius: "9999px",
-                      backgroundColor: C.surfaceContainer,
-                      color: C.secondary,
-                      fontSize: "10px",
-                      fontFamily: "monospace",
-                      fontWeight: 600,
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span
-                style={{
-                  color: C.outline,
                   fontSize: "10px",
                   fontFamily: "monospace",
                   fontWeight: 600,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "8px",
                 }}
               >
-                {t("portfolio.fash.num")}
+                {t("portfolio.label")}
               </span>
-              <h3
+              <h2
                 style={{
                   fontFamily: "var(--font-outfit)",
-                  fontSize: "40px",
-                  lineHeight: "48px",
-                  fontWeight: 800,
+                  fontSize: "clamp(28px, 4vw, 40px)",
+                  lineHeight: "1.2",
+                  fontWeight: 700,
                   letterSpacing: "-0.025em",
                   color: C.onSurface,
-                  margin: 0,
+                  textTransform: "uppercase",
+                  margin: "0 0 0.75rem",
                 }}
               >
-                {t("portfolio.fash.title")}
-              </h3>
-              <p
-                style={{
-                  color: C.secondary,
-                  fontSize: "20px",
-                  fontFamily: "var(--font-outfit)",
-                  fontWeight: 600,
-                }}
-              >
-                {t("portfolio.fash.sub")}
-              </p>
+                {t("portfolio.title")}
+              </h2>
               <p
                 style={{
                   color: C.onSurfaceVariant,
                   fontSize: "15px",
                   lineHeight: "24px",
+                  margin: 0,
                 }}
               >
-                {t("portfolio.fash.desc")}
+                {t("work.subtitle")}
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  [
-                    t("portfolio.fash.stat1v"),
-                    t("portfolio.fash.stat1l"),
-                    C.secondary,
-                  ],
-                  [
-                    t("portfolio.fash.stat2v"),
-                    t("portfolio.fash.stat2l"),
-                    C.onSurface,
-                  ],
-                  [
-                    t("portfolio.fash.stat3v"),
-                    t("portfolio.fash.stat3l"),
-                    C.tertiary,
-                  ],
-                ].map(([v, l, color]) => (
-                  <div
-                    key={l as string}
-                    style={{
-                      padding: "0.75rem",
-                      borderRadius: "12px",
-                      backgroundColor: C.surfaceLow,
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: color as string,
-                        fontSize: "20px",
-                        fontFamily: "var(--font-outfit)",
-                        fontWeight: 700,
-                        display: "block",
-                      }}
-                    >
-                      {v}
-                    </span>
-                    <span
-                      style={{
-                        color: C.outline,
-                        fontSize: "10px",
-                        fontFamily: "monospace",
-                        fontWeight: 600,
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        marginTop: "4px",
-                        display: "block",
-                      }}
-                    >
-                      {l}
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
             <Link
               href="/work"
               style={{
@@ -1011,17 +681,28 @@ export default function HomePageContent() {
                 fontWeight: 500,
                 textDecoration: "none",
                 border: `1px solid ${C.outlineVariant}`,
+                flexShrink: 0,
               }}
             >
               <span>{t("work.viewAll")}</span>
               <span
-                className="material-symbols-outlined"
+                className="material-symbols-outlined rtl:-scale-x-100"
                 style={{ fontSize: "18px" }}
               >
                 arrow_forward
               </span>
             </Link>
           </div>
+
+          {/* Compact teaser: the first three cases. Full stories live on /work. */}
+          <CaseStudyPreview
+            cases={buildCaseStudies(t).slice(0, 3)}
+            href="/work"
+            labels={{
+              caseStudy: t("work.caseStudy"),
+              viewCaseStudy: t("common.viewCaseStudy"),
+            }}
+          />
         </div>
       </section>
 
